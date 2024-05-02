@@ -1,37 +1,37 @@
-import React, { useState } from 'react';//Zendejas Mendez Obed Aaron 6BVPG
+import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, FlatList } from 'react-native';
-//Zendejas Mendez Obed Aaron 6BVPG
+
 export default function App() {
   const [enteredGoalText, setEnteredGoalText] = useState('');
   const [goals, setGoals] = useState([]);
-//Zendejas Mendez Obed Aaron 6BVPG
-  function handleInputGoal(enteredText) {//Zendejas Mendez Obed Aaron 6BVPG
-    console.log(enteredText);//Zendejas Mendez Obed Aaron 6BVPG
-    setEnteredGoalText(enteredText);//Zendejas Mendez Obed Aaron 6BVPG
-  }//Zendejas Mendez Obed Aaron 6BVPG
-//Zendejas Mendez Obed Aaron 6BVPG
-  function handleAddGoal() {//Zendejas Mendez Obed Aaron 6BVPG
-    console.log(enteredGoalText);//Zendejas Mendez Obed Aaron 6BVPG
+
+  function handleInputGoal(enteredText) {
+    console.log(enteredText);
+    setEnteredGoalText(enteredText);
+  }
+
+  function handleAddGoal() {
+    console.log(enteredGoalText);
     setGoals([...goals, { text: enteredGoalText, key: Math.random().toString() }]);
   }
-//Zendejas Mendez Obed Aaron 6BVPG
-  return (//Zendejas Mendez Obed Aaron 6BVPG
+
+  return (
     <View style={styles.container}>
       <View style={styles.inputContainer}>
         <TextInput
-          style={styles.textinput}//Zendejas Mendez Obed Aaron 6BVPG
-          placeholder="Your Goal!"//Zendejas Mendez Obed Aaron 6BVPG
-          onChangeText={handleInputGoal}//Zendejas Mendez Obed Aaron 6BVPG
+          style={styles.textinput}
+          placeholder="Your Goal!"
+          onChangeText={handleInputGoal}
         />
         <Button
-          title="Add Goal"//Zendejas Mendez Obed Aaron 6BVPG
-          color="#A3FFD6"//Zendejas Mendez Obed Aaron 6BVPG
-          onPress={handleAddGoal}//Zendejas Mendez Obed Aaron 6BVPG
+          title="Add Goal"
+          color="#A3FFD6"
+          onPress={handleAddGoal}
         />
       </View>
       <View style={styles.goalsContainer}>
         <FlatList
-          data={goals}//Zendejas Mendez Obed Aaron 6BVPG
+          data={goals}
           renderItem={({ item }) => (
             <View style={styles.goalsItem}>
               <Text style={styles.goalText}>{item.text}</Text>
@@ -39,41 +39,40 @@ export default function App() {
           )}
         />
       </View>
-    </View>//Zendejas Mendez Obed Aaron 6BVPG
-  );//Zendejas Mendez Obed Aaron 6BVPG
-}//Zendejas Mendez Obed Aaron 6BVPG
-//Zendejas Mendez Obed Aaron 6BVPG
+    </View>
+  );
+}
+
 const styles = StyleSheet.create({
-  container: {//Zendejas Mendez Obed Aaron 6BVPG
+  container: {
     flex: 1,
     paddingTop: 50,
     paddingHorizontal: 20,
   },
-  inputContainer: {//Zendejas Mendez Obed Aaron 6BVPG
-    flexDirection: 'row',//Zendejas Mendez Obed Aaron 6BVPG
-    justifyContent: 'center',//Zendejas Mendez Obed Aaron 6BVPG
-    alignItems: 'center',//Zendejas Mendez Obed Aaron 6BVPG
-    marginBottom: 20,//Zendejas Mendez Obed Aaron 6BVPG
-    borderBottomWidth: 1,//Zendejas Mendez Obed Aaron 6BVPG
-    borderBottomColor: '#7BC9FF',//Zendejas Mendez Obed Aaron 6BVPG
+  inputContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 20,
+    borderBottomWidth: 1,
+    borderBottomColor: '#7BC9FF',
   },
-  textinput: {//Zendejas Mendez Obed Aaron 6BVPG
-    borderWidth: 1,//Zendejas Mendez Obed Aaron 6BVPG
-    borderColor: '#CCCCCC',//Zendejas Mendez Obed Aaron 6BVPG
-    width: '80%',//Zendejas Mendez Obed Aaron 6BVPG
-    marginRight: 3,//Zendejas Mendez Obed Aaron 6BVPG
-    padding: 8,//Zendejas Mendez Obed Aaron 6BVPG
-    borderRadius: 5,//Zendejas Mendez Obed Aaron 6BVPG
-  },//Zendejas Mendez Obed Aaron 6BVPG
-  goalsItem: { //Zendejas Mendez Obed Aaron 6BVPG
-    margin: 0,//Zendejas Mendez Obed Aaron 6BVPG
-    padding: 0,//Zendejas Mendez Obed Aaron 6BVPG
-    borderRadius: 6,//Zendejas Mendez Obed Aaron 6BVPG
-    backgroundColor: '#8576FF',//Zendejas Mendez Obed Aaron 6BVPG
-    color: 'white',//Zendejas Mendez Obed Aaron 6BVPG
-  },//Zendejas Mendez Obed Aaron 6BVPG
-  goalText: {//Zendejas Mendez Obed Aaron 6BVPG
-    color: 'white',//Zendejas Mendez Obed Aaron 6BVPG
-  },//Zendejas Mendez Obed Aaron 6BVPG
-});//Zendejas Mendez Obed Aaron 6BVPG
-//Zendejas Mendez Obed Aaron 6BVPG
+  textinput: {
+    borderWidth: 1,
+    borderColor: '#CCCCCC',
+    width: '80%',
+    marginRight: 3,
+    padding: 8,
+    borderRadius: 5,
+  },
+  goalsItem: { 
+    margin: 0,
+    padding: 0,
+    borderRadius: 6,
+    backgroundColor: '#8576FF',
+    color: 'white',
+  },
+  goalText: {
+    color: 'white',
+  },
+});
